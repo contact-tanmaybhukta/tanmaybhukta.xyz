@@ -1,11 +1,14 @@
-// Custom Premium Luxury Styling Overrides
+// Absolute top declaration required by SASS compiler
+@use "./variables.scss" as *;
+
+// Premium Luxury Custom Styling Overrides
 body {
   background-color: #000000 !important;
   color: #dddddd !important;
   font-family: -apple-system, BlinkMacSystemFont, "Inter Tight", "Inter", sans-serif !important;
 }
 
-// Center container but expand text layout constraints
+// Center layout container and expand text boundaries cleanly
 .page {
   max-width: 900px !important;
   margin: 0 auto !important;
@@ -19,7 +22,7 @@ body {
   max-width: 100% !important;
 }
 
-// Premium stark titles
+// Premium stark typography headers
 h1, h2, h3, h4, h5, h6 {
   color: #ffffff !important;
   font-family: "Inter Tight", -apple-system, sans-serif !important;
@@ -34,14 +37,14 @@ h1 {
   margin-bottom: 2rem !important;
 }
 
-// Sleek minimal block dividers
+// Sleek minimal block layout dividers
 hr {
   border: none !important;
   border-top: 1px solid #161616 !important;
   margin: 3.5rem 0 !important;
 }
 
-// Stark modern hyperlinks
+// Modern minimalistic text links
 a.internal, a.external {
   color: #ffffff !important;
   text-decoration: none !important;
@@ -54,7 +57,7 @@ a.internal, a.external {
   }
 }
 
-// Clean up standard list icons
+// Clean list layouts
 ul {
   list-style: none !important;
   padding-left: 0 !important;
@@ -66,7 +69,7 @@ li {
   font-size: 15px !important;
 }
 
-// Completely kill the footer brand labels
+// Remove default system brand footer links
 footer {
   margin-top: 6rem !important;
   border-top: 1px solid #111111 !important;
@@ -75,9 +78,6 @@ footer {
   color: #444444 !important;
   
   a, p, span {
-    display: none !important; // Hides default Quartz credit footers
+    display: none !important;
   }
 }
-@use "./variables.scss" as *;
-
-// put your custom CSS here!
