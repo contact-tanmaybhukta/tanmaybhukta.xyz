@@ -7,12 +7,14 @@ title: TANMAY BHUKTA
 ---
 
 ### [ INVESTMENTS & THESIS BLOCKS ]
-- [[Cinematic Distribution Models]] — Capital allocation structures in digital media.
-- [[Attention Arbitrage & Virality]] — Engineering organic scale loops.
+* [[Cinematic Distribution Models]] — Capital allocation structures in digital media.
+* [[Attention Arbitrage & Virality]] — Engineering organic scale loops.
+* [[adult media]] — Production scaling and ecosystem architecture models.
 
 ---
 
 ### [ DIRECT TERMINAL ]
-<a href="mailto:divinesinmgmt@gmail.com" style="display:inline-block; background:#ffffff; color:#000000; padding:12px 24px; text-decoration:none; font-weight:bold; margin-right:10px;">→ Secure Inbound</a>
-<a href="https://wa.me" style="display:inline-block; border:1px solid #222222; color:#ffffff; padding:12px 24px; text-decoration:none;">→ Direct WhatsApp</a>
----
+<div class="terminal-button-container">
+  <a href="mailto:divinesinmgmt@gmail.com" class="btn-primary">→ Secure Inbound</a>
+  <a href="https://wa.me" class="btn-secondary">→ Direct WhatsApp</a>
+</div>

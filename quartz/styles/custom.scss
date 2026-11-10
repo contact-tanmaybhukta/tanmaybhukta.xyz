@@ -1,83 +1,104 @@
-// Absolute top declaration required by SASS compiler
 @use "./variables.scss" as *;
 
-// Premium Luxury Custom Styling Overrides
-body {
+// Global layout reset for a clean terminal feel
+body, html {
   background-color: #000000 !important;
+  background: #000000 !important;
   color: #dddddd !important;
+  margin: 0 !important;
+  padding: 0 !important;
   font-family: -apple-system, BlinkMacSystemFont, "Inter Tight", "Inter", sans-serif !important;
 }
 
-// Center layout container and expand text boundaries cleanly
+// Center container with dynamic mobile/PC alignment configurations
 .page {
-  max-width: 900px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  max-width: 800px !important;
   margin: 0 auto !important;
-  padding: 6rem 2rem !important;
+  padding: 5rem 1.5rem !important;
   background: #000000 !important;
 }
 
-// Expand full content rendering columns completely
-.center, article {
+// Expand text layout boundaries completely and drop grid splits
+.center, article, main {
   width: 100% !important;
   max-width: 100% !important;
 }
 
-// Premium stark typography headers
+// Kill the Wikipedia sidebars aggressively via style hierarchy rules
+#quartz-left, .sidebar, aside, #quartz-right, .graph, .toc, .search-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+// Premium stark typography text alignments
 h1, h2, h3, h4, h5, h6 {
   color: #ffffff !important;
   font-family: "Inter Tight", -apple-system, sans-serif !important;
   font-weight: 700 !important;
   letter-spacing: -0.03em !important;
-  margin-top: 2.5rem !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
 }
 
 h1 {
   font-size: 2.5rem !important;
-  line-height: 1.15 !important;
   margin-bottom: 2rem !important;
 }
 
-// Sleek minimal block layout dividers
+@media (max-width: 600px) {
+  h1 { font-size: 1.85rem !important; }
+  .page { padding: 3rem 1.25rem !important; }
+}
+
+// Sleek modern linear horizontal breaks
 hr {
   border: none !important;
   border-top: 1px solid #161616 !important;
-  margin: 3.5rem 0 !important;
+  margin: 3rem 0 !important;
 }
 
-// Modern minimalistic text links
-a.internal, a.external {
-  color: #ffffff !important;
+// Custom standalone action terminal link tabs
+.terminal-button-container {
+  margin-top: 24px !important;
+  display: block !important;
+  clear: both !important;
+}
+
+.btn-primary {
+  display: inline-block !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  padding: 14px 28px !important;
   text-decoration: none !important;
-  border-bottom: 1px dashed #333333 !important;
-  transition: border-color 0.2s ease, opacity 0.2s ease !important;
-  
-  &:hover {
-    opacity: 0.8 !important;
-    border-bottom-color: #ffffff !important;
-  }
+  font-weight: bold !important;
+  font-size: 14px !important;
+  margin-right: 12px !important;
+  margin-bottom: 12px !important;
 }
 
-// Clean list layouts
-ul {
-  list-style: none !important;
-  padding-left: 0 !important;
+.btn-secondary {
+  display: inline-block !important;
+  border: 1px solid #333333 !important;
+  color: #ffffff !important;
+  padding: 14px 28px !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  margin-bottom: 12px !important;
 }
 
-li {
-  margin-bottom: 0.8rem !important;
-  color: #888888 !important;
-  font-size: 15px !important;
-}
-
-// Remove default system brand footer links
+// Purge any residual system brand footers
 footer {
-  margin-top: 6rem !important;
+  margin-top: 5rem !important;
   border-top: 1px solid #111111 !important;
   padding-top: 2rem !important;
-  font-size: 12px !important;
-  color: #444444 !important;
   
-  a, p, span {
+  a, p, span, div {
     display: none !important;
   }
 }
