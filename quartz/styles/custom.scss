@@ -1,137 +1,64 @@
 @use "./variables.scss" as *;
-
-// 🪐 Root Canvas - Premium Absolute Dark Mode
-:root {
-  --background: #000000;
-  --text-primary: #ffffff;
-  --text-muted: #8e9297;
-  --border-glow: #1a1a1a;
-  --accent-white: #ffffff;
+:root { color-scheme: dark; --light:#000; --lightgray:#242424; --gray:#777; --darkgray:#c7c7c7; --dark:#f4f1eb; --secondary:#e5dad0; --tertiary:#d86b51; }
+html,body { background:#000; } body { --headerFont:"Space Grotesk",Arial,sans-serif; --bodyFont:"Inter",Arial,sans-serif; --codeFont:"JetBrains Mono",monospace; font-family:var(--bodyFont); -webkit-font-smoothing:antialiased; }
+a:focus-visible { outline:2px solid #d86b51; outline-offset:5px; }
+article { font-size:1.05rem; line-height:1.8; } article li { margin-bottom:.8rem; }
+body[data-slug="index"] {
+ .page { max-width:1240px; padding:0 40px; margin:0 auto; }
+ #quartz-body { display:block; padding:0; }
+ .sidebar.left { position:relative; display:block; height:auto; padding:0; margin:0; width:100%; }
+ .sidebar.left .search { position:absolute; top:90px; right:0; width:180px; z-index:2; }
+ .sidebar.right { display:none; }
+ .center { width:100%; min-width:0; }
+ .page-header, .center > hr, .page-footer, #quartz-body > footer { display:none; }
+ article { margin:0; }
+ article a.internal,article a.external { background:none; padding:0; color:inherit; text-decoration:none; }
+ article a:hover { color:#d86b51; }
+ article a.external .external-icon { display:none; }
+ .founder-nav { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:28px 0; border-bottom:1px solid #292929; font-size:.78rem; }
+ .founder-nav > div { display:flex; gap:25px; }
+ .founder-wordmark { font-size:1.15rem; letter-spacing:-.8px; font-weight:700; }
+ .founder-wordmark span { color:#888; }
+ .founder-hero { padding-top:55px; }
+ .eyebrow { font:10px/1.5 var(--codeFont); letter-spacing:1.7px; color:#999; margin:0 0 28px; }
+ h1 { font:700 clamp(80px,14.8vw,182px)/.85 var(--headerFont); letter-spacing:-.075em; margin:42px 0; }
+ h1 > span { color:transparent; -webkit-text-stroke:1px #d9d7d2; }
+ h2 { font:500 clamp(30px,4vw,49px)/1.15 var(--headerFont); letter-spacing:-1.8px; margin:0 0 28px; }
+ em { font-family:Georgia,serif; font-weight:400; color:#b8aaa0; }
+ .hero-bottom { display:flex; justify-content:space-between; gap:25px; align-items:flex-end; margin-bottom:40px; }
+ .hero-bottom p { font-size:clamp(20px,2.7vw,31px); line-height:1.3; letter-spacing:-.5px; margin:0; }
+ .underlined { font-size:12px; border-bottom:1px solid #666; padding-bottom:8px!important; }
+ .chrome-scene { height:260px; position:relative; overflow:hidden; display:grid; place-items:center; border:1px solid #252525; background:radial-gradient(ellipse at center,#242424 0%,#080808 53%,#020202 80%); perspective:800px; }
+ .chrome-core { font:700 100px/1 var(--headerFont); letter-spacing:-10px; background:linear-gradient(130deg,#fff 10%,#555 35%,#f7eee6 48%,#555 60%,#ddd 85%); background-clip:text; color:transparent; transform:rotate(-9deg); text-shadow:12px 18px 35px #0005; }
+ .chrome-orbit { position:absolute; width:340px; height:180px; border:2px solid #aaa; border-radius:50%; box-shadow:inset 1px 1px 3px #fff8,0 0 14px #fff1; animation:orbit 22s linear infinite; }
+ .orbit-two { animation-direction:reverse; animation-delay:-6s; border-color:#555; }
+ .scene-label { position:absolute; bottom:15px; left:20px; font:8px var(--codeFont); letter-spacing:1.5px; color:#999; }
+ .founder-section { padding:65px 0; border-bottom:1px solid #252525; }
+ .split { display:grid; grid-template-columns:1fr 1fr; gap:70px; }
+ p { color:#bbb; } .split p:first-child { margin-top:0; } .muted { color:#858585; } .small { font-size:11px; }
+ .thesis-heading { font-size:clamp(32px,4.6vw,57px); margin-bottom:25px; }
+ .thesis-note { max-width:550px; font-size:14px; }
+ .interest-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-top:40px; }
+ .interest-grid > div { border-top:1px solid #444; padding-top:22px; }
+ .interest-grid span { font:9px var(--codeFont); color:#999; }
+ .interest-grid h3 { font-size:20px; font-weight:500; letter-spacing:-.6px; margin:19px 0 12px; }
+ .interest-grid p { font-size:13px; line-height:1.8; }
+ #journal ul { list-style:none; padding:0; margin:30px 0 0; }
+ #journal li { border-top:1px solid #292929; padding:22px 0; margin:0; color:#999; font-size:13px; }
+ #journal li a { font-size:18px; color:#eee; }
+ .contact-cta { display:inline-block; background:#f4f1eb!important; color:#000!important; padding:12px 22px!important; margin-top:15px; font-size:13px; }
+ .contact-cta:hover { background:#d9b5a8!important; }
+ .founder-footer { display:flex; justify-content:space-between; gap:18px; padding:25px 0; font:10px var(--codeFont); color:#888; }
 }
-
-body, html, #quartz-body {
-  background-color: var(--background) !important;
-  background: var(--background) !important;
-  color: var(--text-primary) !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  font-family: -apple-system, BlinkMacSystemFont, "Inter Tight", "Inter", sans-serif !important;
-  -webkit-font-smoothing: antialiased;
-}
-
-// 🏗️ Structural Container Optimization (PC & Mobile Grid Alignment)
-.page {
-  display: flex !important;
-  flex-direction: column !important;
-  max-width: 760px !important;
-  margin: 0 auto !important;
-  padding: 6rem 1.5rem !important;
-  background: var(--background) !important;
-}
-
-// Expand text constraints to full layout viewport width
-.center, article, main, .article-title {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-// 🔨 Aggressive Clutter Purge (Kills sidebars, graph boxes, headers & residual frames)
-#quartz-left, .sidebar, aside, #quartz-right, .graph, .toc, .search-button, .backlinks, .meta, .breadcrumbs, .page-header {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-// 🔤 High-Status Large Typography Matrix (Sexy GitHub Search Document Feel)
-h1.article-title {
-  font-size: 3.5rem !important; // Massive Title
-  font-weight: 800 !important;
-  letter-spacing: -0.04em !important;
-  line-height: 1.1 !important;
-  color: var(--text-primary) !important;
-  margin-bottom: 2.5rem !important;
-  text-transform: uppercase;
-}
-
-h1, h2, h3, h4 {
-  color: var(--text-primary) !important;
-  font-family: "Inter Tight", -apple-system, sans-serif !important;
-  letter-spacing: -0.03em !important;
-  font-weight: 700 !important;
-  text-align: left !important;
-}
-
-h3 {
-  font-size: 1.1rem !important;
-  color: var(--text-muted) !important;
-  letter-spacing: 0.05em !important;
-  text-transform: uppercase;
-  margin-top: 3.5rem !important;
-  margin-bottom: 1rem !important;
-}
-
-// Main thesis paragraph texts
-p, article > p {
-  font-size: 1.35rem !important; // Big, scannable founder body font
-  line-height: 1.5 !important;
-  color: #e2e8f0 !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.01em !important;
-  margin-bottom: 2rem !important;
-}
-
-// Modern Minimalist Line Dividers
-hr {
-  border: none !important;
-  border-top: 1px solid var(--border-glow) !important;
-  margin: 3.5rem 0 !important;
-}
-
-// 🖇️ High-Contrast Link Blocks
-a.internal, a.external {
-  color: var(--text-primary) !important;
-  text-decoration: none !important;
-  font-weight: 600 !important;
-  border-bottom: 1px solid #333333 !important;
-  transition: border-color 0.15s ease !important;
-  
-  &:hover {
-    border-bottom-color: var(--accent-white) !important;
-  }
-}
-
-// Clean up thesis unordered list parameters
-ul {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin: 1.5rem 0 !important;
-}
-
-li {
-  font-size: 1.25rem !important;
-  line-height: 1.6 !important;
-  margin-bottom: 1.2rem !important;
-  color: #e2e8f0 !important;
-  
-  a {
-    font-weight: 700 !important;
-  }
-}
-
-// 📱 Mobile View Typography Scaling Responsive Adjustments
-@media (max-width: 600px) {
-  h1.article-title { font-size: 2.5rem !important; }
-  p, article > p { font-size: 1.15rem !important; }
-  li { font-size: 1.1rem !important; }
-  .page { padding: 4rem 1.25rem !important; }
-}
-
-// Completely kill system brand footer labels
-footer {
-  display: none !important;
-}
+@keyframes orbit { from { transform:rotateX(65deg) rotateY(-20deg) rotateZ(0deg); } to { transform:rotateX(65deg) rotateY(-20deg) rotateZ(360deg); } }
+@media(max-width:700px) { body[data-slug="index"] {
+ .page { padding:0 22px; } .founder-nav { padding:23px 0; } .founder-nav>div { gap:12px; font-size:10px; } .founder-wordmark { font-size:15px; }
+ .sidebar.left .search { top:80px; width:135px; } .founder-hero { padding-top:60px; } .eyebrow { font-size:8px; letter-spacing:1px; }
+ h1 { font-size:16vw; margin:30px 0; } .hero-bottom { flex-direction:column; align-items:flex-start; } .hero-bottom p { font-size:24px; }
+ .chrome-scene { height:215px; } .chrome-orbit { width:270px; height:160px; } .chrome-core { font-size:80px; }
+ .founder-section { padding:45px 0; } .split { grid-template-columns:1fr; gap:15px; } .interest-grid { grid-template-columns:1fr; gap:20px; }
+ h2 { font-size:35px; } .thesis-heading { font-size:32px; } .founder-footer { flex-wrap:wrap; font-size:9px; }
+ #journal li a { display:block; margin-bottom:8px; }
+} }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .chrome-orbit { animation:none!important; transform:rotateX(65deg) rotateZ(-25deg); } }
+@media(forced-colors:active) { body[data-slug="index"] h1 > span,body[data-slug="index"] .chrome-core { color:CanvasText; -webkit-text-stroke:0; } }
