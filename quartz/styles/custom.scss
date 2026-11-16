@@ -83,3 +83,5 @@ body[data-slug="index"] {
 }
 body:not([data-slug="index"]) { article { max-width:740px; } article p { line-height:1.9; } article h2 { margin-top:2.5rem; } }
 @media(max-width:650px) { body[data-slug="index"] { .about-section,.posts-section { padding:40px 0; } .about-grid { grid-template-columns:1fr; gap:25px; } .posts-heading h2 { font-size:32px; } .posts-section li a { font-size:20px; } } }
+
+.personal-copyright { color:#92849b; font-size:11px; padding:24px 0; border-top:1px solid #232025; }
