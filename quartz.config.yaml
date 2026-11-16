@@ -135,6 +135,7 @@ plugins:
   - source: "@quartz-community/search"
     enabled: true
     layout:
+      condition: not-index
       position: left
       priority: 20
       group: toolbar
