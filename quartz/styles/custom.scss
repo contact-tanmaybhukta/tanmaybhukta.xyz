@@ -1,137 +1,93 @@
 @use "./variables.scss" as *;
-
-// 🪐 Root Canvas - Premium Absolute Dark Mode
-:root {
-  --background: #000000;
-  --text-primary: #ffffff;
-  --text-muted: #8e9297;
-  --border-glow: #1a1a1a;
-  --accent-white: #ffffff;
+@font-face { font-family:Inter; src:url("./static/fonts/inter-regular.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:Inter; src:url("./static/fonts/inter-bold.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:"Instrument Serif"; src:url("./static/fonts/instrument-italic.woff2") format("woff2"); font-weight:400; font-style:italic; font-display:swap; }
+body { color-scheme:dark; --light:#000; --lightgray:#242426; --gray:#8e8e93; --darkgray:#a6a6ad; --dark:#f5f5f7; --secondary:#d5c5df; --tertiary:#ed839a; --headerFont:Inter,Arial,sans-serif; --bodyFont:Inter,Arial,sans-serif; --codeFont:ui-monospace,monospace; margin:0; background:#000; color:#f5f5f7; font-family:var(--bodyFont); -webkit-font-smoothing:antialiased; }
+html { background:#000; scroll-padding-top:24px; }
+* { box-sizing:border-box; }
+a:focus-visible { outline:2px solid #d9bde9; outline-offset:5px; }
+.page { width:calc(100% - 48px); max-width:780px!important; padding:0; margin:0 auto; }
+#quartz-body { display:block; padding:0; }
+.center,.center.full-width { min-width:0; width:100%; max-width:100%; margin:0; }
+article { font-size:15px; line-height:1.85; }
+article a { overflow-wrap:anywhere; }
+.personal-copyright { color:#8e8e93; font-size:11px; padding:25px 0; margin-top:20px; border-top:1px solid #ffffff14; }
+body:not([data-slug="index"]) { .page { padding-top:45px; } article h2 { margin-top:2.5rem; } }
+body[data-slug="index"] {
+ background:radial-gradient(ellipse 640px 380px at 50% 0,rgba(225,29,72,.06),transparent 85%),#000;
+ .page-header,.page-footer,.center>hr { display:none; }
+ article { margin:0; }
+ article a.internal,article a.external { background:none; padding:0; text-decoration:none; color:inherit; }
+ article a .external-icon { display:none; }
+ .topbar { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:28px 0; border-bottom:1px solid #ffffff14; font-size:11px; }
+ .brand { font-size:14px; font-weight:700; letter-spacing:-.6px; }
+ .topbar>div { display:flex; gap:22px; color:#a5a1aa; }
+ .topbar a:hover { color:#f5f5f7; }
+ .minimal-hero { padding:68px 0 58px; }
+ .overline,.card-meta,.card-tag,.work-number { font:10px/1.5 var(--codeFont); letter-spacing:.1em; color:#8e8e93; }
+ .overline { display:flex; align-items:center; gap:9px; margin:0 0 25px; }
+ .violet-dot { width:5px; height:5px; border-radius:50%; background:#b94a63; }
+ h1 { font:700 clamp(76px,12vw,112px)/.95 var(--headerFont); letter-spacing:-.065em; margin:30px 0; color:#f5f5f7; }
+ em { font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-weight:400; color:#d9c8db; }
+ h1 em { font-size:1.22em; letter-spacing:-.045em; }
+ .hero-description p { max-width:490px; font-size:14px; line-height:1.85; color:#8e8e93; margin:0; }
+ h2 { font:400 36px/1.15 var(--headerFont); letter-spacing:-.04em; color:#f5f5f7; margin:0; }
+ h2 em { font-size:1.2em; }
+ .ventures-section,.posts-section,.about-section,.work-section,.minimal-contact { padding:40px 0; border-top:1px solid #ffffff14; }
+ .venture-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:27px; }
+ .venture-card { display:block; padding:25px!important; border-radius:16px; background:#0a0a0c!important; border:1px solid #ffffff14; transition:border-color .25s cubic-bezier(.16,1,.3,1); }
+ .venture-card:hover { border-color:#ffffff38; }
+ h3 { font:400 21px/1.3 var(--headerFont); letter-spacing:-.03em; color:#eeeaf1; margin:18px 0 12px; }
+ .venture-card h3 { display:flex; align-items:center; justify-content:space-between; font-size:25px; }
+ .arrow { display:inline-block; color:#9f939f; transition:transform .25s cubic-bezier(.16,1,.3,1); }
+ .venture-card:hover .arrow { transform:translate(2px,-2px); }
+ .venture-card p { color:#8e8e93; font-size:12px; line-height:1.8; margin:0 0 25px; }
+ .card-meta,.card-tag { font-size:8px; }
+ .card-tag { color:#afa0b3; }
+ .posts-heading { display:flex; justify-content:space-between; align-items:flex-end; gap:20px; }
+ .all-posts { white-space:nowrap; font-size:11px; border-bottom:1px solid #554653; padding-bottom:5px!important; }
+ .posts-intro,.section-caption { font-size:12px; color:#8e8e93; margin:22px 0 0; }
+ .posts-section ul { list-style:none; padding:0; margin:26px 0 0; }
+ .posts-section li { position:relative; border-top:1px solid #ffffff14; padding:22px 35px 22px 0; color:#8e8e93; font-size:11px; margin:0; }
+ .posts-section li a { display:block; font-size:17px; color:#eae5ee!important; letter-spacing:-.03em; margin-bottom:8px; }
+ .posts-section li::after { pointer-events:none; content:"→"; position:absolute; right:5px; top:23px; color:#a99cae; transition:transform .25s cubic-bezier(.16,1,.3,1); }
+ .posts-section li:hover::after { transform:translateX(4px); }
+ .about-grid { display:grid; grid-template-columns:1fr 1.15fr; gap:35px; }
+ .about-grid p { color:#8e8e93; font-size:12px; line-height:1.85; margin:0 0 15px; }
+ .work-section { border:0; padding-top:0; }
+ .work-section .section-intro h2 { font-size:27px; }
+ .work-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:25px; }
+ .work-item { padding:20px; background:#0a0a0c; border:1px solid #ffffff14; border-radius:14px; }
+ .work-item h3 { font-size:15px; margin:14px 0 10px; }
+ .work-item p { font-size:11px; color:#8e8e93; margin:0; line-height:1.85; }
+ .minimal-contact { padding-bottom:22px; }
+ .minimal-contact h2 { font-size:43px; }
+ .minimal-actions { display:flex; gap:12px; margin-top:27px; }
+ .minimal-actions a { display:inline-flex; align-items:center; justify-content:space-between; gap:30px; min-width:140px; padding:12px 18px!important; border-radius:999px; background:#0a0a0c!important; border:1px solid #ffffff20; color:#eee9f4!important; font-size:11px; transition:border-color .25s cubic-bezier(.16,1,.3,1); }
+ .minimal-actions a:hover { border-color:#ffffff50; }
+ .contact-address { font-size:10px; color:#8e8e93; margin-top:20px; }
+ .contact-address>span { margin:0 7px; color:#4b454f; }
 }
-
-body, html, #quartz-body {
-  background-color: var(--background) !important;
-  background: var(--background) !important;
-  color: var(--text-primary) !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  font-family: -apple-system, BlinkMacSystemFont, "Inter Tight", "Inter", sans-serif !important;
-  -webkit-font-smoothing: antialiased;
+@media(max-width:600px) {
+ .page { width:calc(100% - 40px); }
+ body[data-slug="index"] {
+  .topbar { flex-wrap:wrap; gap:14px; padding:23px 0; } .topbar>div { gap:17px; font-size:10px; }
+  .minimal-hero { padding:45px 0 40px; } h1 { font-size:clamp(70px,18vw,95px); }
+  .overline { font-size:8px; } h2 { font-size:31px; }
+  .venture-grid,.about-grid { grid-template-columns:1fr; gap:16px; }
+  .ventures-section,.posts-section,.about-section,.minimal-contact { padding:32px 0; }
+  .venture-card { padding:23px!important; } .venture-card p { max-width:300px; }
+  .posts-heading { align-items:flex-start; } .posts-section li a { font-size:17px; }
+  .work-list { grid-template-columns:1fr; } .work-item { padding:20px; } .work-item h3 { font-size:18px; }
+  .work-item p { font-size:12px; } .minimal-contact h2 { font-size:37px; }
+  .minimal-actions a { min-width:0; flex:1; gap:20px; } .contact-address>span { display:block; height:6px; font-size:0; }
+ }
 }
-
-// 🏗️ Structural Container Optimization (PC & Mobile Grid Alignment)
-.page {
-  display: flex !important;
-  flex-direction: column !important;
-  max-width: 760px !important;
-  margin: 0 auto !important;
-  padding: 6rem 1.5rem !important;
-  background: var(--background) !important;
-}
-
-// Expand text constraints to full layout viewport width
-.center, article, main, .article-title {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-// 🔨 Aggressive Clutter Purge (Kills sidebars, graph boxes, headers & residual frames)
-#quartz-left, .sidebar, aside, #quartz-right, .graph, .toc, .search-button, .backlinks, .meta, .breadcrumbs, .page-header {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-// 🔤 High-Status Large Typography Matrix (Sexy GitHub Search Document Feel)
-h1.article-title {
-  font-size: 3.5rem !important; // Massive Title
-  font-weight: 800 !important;
-  letter-spacing: -0.04em !important;
-  line-height: 1.1 !important;
-  color: var(--text-primary) !important;
-  margin-bottom: 2.5rem !important;
-  text-transform: uppercase;
-}
-
-h1, h2, h3, h4 {
-  color: var(--text-primary) !important;
-  font-family: "Inter Tight", -apple-system, sans-serif !important;
-  letter-spacing: -0.03em !important;
-  font-weight: 700 !important;
-  text-align: left !important;
-}
-
-h3 {
-  font-size: 1.1rem !important;
-  color: var(--text-muted) !important;
-  letter-spacing: 0.05em !important;
-  text-transform: uppercase;
-  margin-top: 3.5rem !important;
-  margin-bottom: 1rem !important;
-}
-
-// Main thesis paragraph texts
-p, article > p {
-  font-size: 1.35rem !important; // Big, scannable founder body font
-  line-height: 1.5 !important;
-  color: #e2e8f0 !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.01em !important;
-  margin-bottom: 2rem !important;
-}
-
-// Modern Minimalist Line Dividers
-hr {
-  border: none !important;
-  border-top: 1px solid var(--border-glow) !important;
-  margin: 3.5rem 0 !important;
-}
-
-// 🖇️ High-Contrast Link Blocks
-a.internal, a.external {
-  color: var(--text-primary) !important;
-  text-decoration: none !important;
-  font-weight: 600 !important;
-  border-bottom: 1px solid #333333 !important;
-  transition: border-color 0.15s ease !important;
-  
-  &:hover {
-    border-bottom-color: var(--accent-white) !important;
-  }
-}
-
-// Clean up thesis unordered list parameters
-ul {
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin: 1.5rem 0 !important;
-}
-
-li {
-  font-size: 1.25rem !important;
-  line-height: 1.6 !important;
-  margin-bottom: 1.2rem !important;
-  color: #e2e8f0 !important;
-  
-  a {
-    font-weight: 700 !important;
-  }
-}
-
-// 📱 Mobile View Typography Scaling Responsive Adjustments
-@media (max-width: 600px) {
-  h1.article-title { font-size: 2.5rem !important; }
-  p, article > p { font-size: 1.15rem !important; }
-  li { font-size: 1.1rem !important; }
-  .page { padding: 4rem 1.25rem !important; }
-}
-
-// Completely kill system brand footer labels
-footer {
-  display: none !important;
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none!important; scroll-behavior:auto!important; } }
+body[data-slug="index"] {
+ .venture-card { font-weight:400; }
+ .posts-section li a::before { content:""; position:absolute; inset:0; }
+ .posts-section li:focus-within { outline:1px solid #d9bde9; outline-offset:4px; }
+ .work-item { transition:border-color .25s cubic-bezier(.16,1,.3,1); }
+ .work-item:hover { border-color:#ffffff38; }
 }
