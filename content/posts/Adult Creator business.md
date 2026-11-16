@@ -1,0 +1,1 @@
+mainstream media that viral money loop of cam industry 
