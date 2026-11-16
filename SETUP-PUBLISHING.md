@@ -37,6 +37,6 @@ A URL such as `e7c30797.personal-website-v5-bvu.pages.dev` is a deployment previ
 ## Posting workflow
 1. Open the cloned repository’s `content` folder as an Obsidian vault.
 2. Create a note, for example `My first post.md`, with a title and your text.
-3. The minimal homepage intentionally has no journal feed. Add a `[[My first post]]` link to a note or to the homepage if you want a visible entry point; published notes remain discoverable through search on note pages.
+3. Create new articles under `content/posts/`. The All posts page automatically lists them after a build. To feature an article on the homepage, add a `[[posts/My first post|My first post]]` link under THE LEARNING JOURNAL in `content/index.md`.
 4. Save the file. From the repository root run `npx quartz sync` to commit and push (GitHub authentication must be configured locally).
 5. Cloudflare rebuilds the branch it watches. Obsidian alone does not upload the website. You can alternatively upload/edit the Markdown file in GitHub and commit it there.

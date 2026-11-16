@@ -75,3 +75,18 @@ body[data-slug="index"] {
  .minimal-footer { font-size:7px; }
 } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } body[data-slug="index"] .minimal-actions a { transition:none; } }
+body[data-slug="index"] {
+ .about-section,.posts-section { border-top:1px solid #232025; padding:50px 0; }
+ .about-grid { display:grid; grid-template-columns:.9fr 1.3fr; gap:65px; }
+ .about-grid p { font-size:13px; line-height:1.9; color:#a89db3; margin:0 0 16px; }
+ .posts-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:25px; }
+ .all-posts { color:#cbb2e9!important; font-size:11px; border-bottom:1px solid #5e4774; padding-bottom:7px!important; }
+ .posts-intro { font-size:12px; margin:25px 0; color:#91849e; }
+ .posts-section ul { list-style:none; padding:0; margin:30px 0 0; }
+ .posts-section li { padding:24px 0; border-top:1px solid #28212f; margin:0; color:#887a95; font-size:12px; }
+ .posts-section a.internal { background:none; padding:0; color:#e3d5f0; text-decoration:none; }
+ .posts-section li a { display:block; font-size:21px; margin-bottom:10px; font-weight:450; letter-spacing:-.4px; }
+ .posts-section a:hover { color:#c4a3eb; }
+}
+body:not([data-slug="index"]) { article { max-width:740px; } article p { line-height:1.9; } article h2 { margin-top:2.5rem; } }
+@media(max-width:650px) { body[data-slug="index"] { .about-section,.posts-section { padding:40px 0; } .about-grid { grid-template-columns:1fr; gap:25px; } .posts-heading h2 { font-size:32px; } .posts-section li a { font-size:20px; } } }
