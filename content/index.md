@@ -3,7 +3,6 @@ title: Tanmay Bhukta
 description: Tanmay Bhukta. Exploring media, creator businesses and technology. Contact me by email or WhatsApp.
 ---
 
-<header class="minimal-header"><span class="wordmark">tanmayxyz<span>.dev</span></span><span class="header-note">INDEPENDENT BY INSTINCT</span></header>
 
 <section class="minimal-hero"><p class="overline"><span class="violet-dot"></span> CULTURE / CAPITAL / TECHNOLOGY</p><h1>Tanmay<br><em>Bhukta.</em></h1><div class="hero-description"><p>Curious about what moves people.<br>Building a point of view on what comes next.</p><span class="hero-index">01 — PERSONAL SPACE</span></div></section>
 

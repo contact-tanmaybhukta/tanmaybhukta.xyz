@@ -16,7 +16,7 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Space Grotesk
+      header: Manrope
       body: Inter
       code: JetBrains Mono
     colors:
