@@ -40,3 +40,10 @@ A URL such as `e7c30797.personal-website-v5-bvu.pages.dev` is a deployment previ
 3. Create new articles under `content/posts/`. The All posts page automatically lists them after a build. To feature an article on the homepage, add a `[[posts/My first post|My first post]]` link under THE LEARNING JOURNAL in `content/index.md`.
 4. Save the file. From the repository root run `npx quartz sync` to commit and push (GitHub authentication must be configured locally).
 5. Cloudflare rebuilds the branch it watches. Obsidian alone does not upload the website. You can alternatively upload/edit the Markdown file in GitHub and commit it there.
+
+## Lightweight layout
+Homepage order is name, learning journal, about, learning focus, contact. Content/folder/tag pages use a full-width reading frame, without sidebar branding or explorer/search widgets. Posts remain reachable through the homepage and the automatic All posts listing; breadcrumbs provide a return path.
+
+SPA routing, viewport prefetch, hover previews, external font loading, unused sidebar plugins, and the math renderer are disabled. The typography uses device-local sans/serif fonts. Reading and links work without JavaScript. If a future post requires mathematical notation, enable the LaTeX plugin deliberately.
+
+Verified at 320, 390, 768, 1440, 1920, and 3840 CSS pixels. This covers responsive viewport behavior; it does not certify every physical device or TV browser.
