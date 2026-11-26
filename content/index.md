@@ -4,7 +4,7 @@ description: Tanmay Bhukta. Exploring media, creator businesses and technology. 
 ---
 
 
-<nav class="topbar" aria-label="Main navigation"><a class="brand" href="tanmay./"></a><div><a href="#ventures">Ventures</a><a href="#notes">Notes</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
+<nav class="topbar" aria-label="Main navigation"><a class="brand" href="./"></a><div><a href="#ventures">Ventures</a><a href="#notes">Notes</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
 
 <section class="minimal-hero"><p class="overline"><span class="violet-dot"></span> CULTURE / CAPITAL / TECHNOLOGY</p><h1>Tanmay<br><em>Bhukta.</em></h1><div class="hero-description"><p>Entrepreneur & media creator. Curious about what moves people—building a point of view on what comes next.</p></div></section>
 
